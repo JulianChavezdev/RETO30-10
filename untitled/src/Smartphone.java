@@ -13,7 +13,7 @@ public class Smartphone {
         this.capacidadBateria = capacidadBateria;
         this.tamanyoPantalla = tamanyoPantalla;
         this.encendido = encendido;
-        this.nivelBateria = 100;
+        this.nivelBateria = nivelBateria;
         this.sistemaOperativo = sistemaOperativo;
     }
 
@@ -83,20 +83,22 @@ public class Smartphone {
     public boolean apagar(){
         return encendido = false;
     }
-    public double usar(int minutos){
+    //Este  metodo nos resta 5 cada x minutos de uso.
+    public int usar(int minutos){
         int uso = Math.max(0, minutos);
         int diminicionBateria = uso / 5;
         return this.nivelBateria = Math.max(0,this.nivelBateria - diminicionBateria);
+        // Este metodo funciona para que sume 2 cada x minutos de cargar.
     }
-    public double cargar(int minutos){
+    public int cargar(int minutos){
         int carga = Math.max(0, minutos);
         int cargaBateria = carga / 2;
         return this.nivelBateria = Math.min(100,this.nivelBateria + cargaBateria);
     }
-
+// Aqui ponemos el toString
     @Override
     public String toString() {
-        return this.marca+ this.modelo+ "-Encendido: " +this.encendido+ ",bateria restante:" +this.nivelBateria+ "%";
+        return this.marca + " " + this.modelo + " - Encendido: " + this.encendido + ", batería restante: " + this.nivelBateria + "%";
     }
 }
 
